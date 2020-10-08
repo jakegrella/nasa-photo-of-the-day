@@ -6,10 +6,13 @@ import './App.css';
 import axios from 'axios';
 //constants
 import { BASE_URL, API_KEY } from './constants/constants';
+//components
+import Header from './components/Header';
+import PhotoOfDay from './components/PhotoOfDay';
+import PreviousPhotos from './components/PreviousPhotos';
 
 function App() {
 	//state
-	// const [dates, setDates] = useState('');
 	const [date, setDate] = useState([]);
 
 	// console.log('first log', dates);
@@ -47,8 +50,16 @@ function App() {
 
 	return (
 		<div className='App'>
-			<h1>{date.title}</h1>
-			<img src={date.url} alt='space' />
+			<Header />
+			<PhotoOfDay
+				date={date.date}
+				title={date.title}
+				imgSrc={date.url}
+				imgAlt={date.title}
+				description={date.explanation}
+				copyright={date.copyright}
+			/>
+			<PreviousPhotos />
 		</div>
 	);
 }
