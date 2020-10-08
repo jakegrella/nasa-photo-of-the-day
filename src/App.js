@@ -1,7 +1,7 @@
 //React, hooks
 import React, { useState, useEffect } from 'react';
 //style
-import './App.css';
+import './styles/App.css';
 //axios
 import axios from 'axios';
 //constants
@@ -9,7 +9,7 @@ import { BASE_URL, API_KEY } from './constants/constants';
 //components
 import Header from './components/Header';
 import PhotoOfDay from './components/PhotoOfDay';
-import PreviousPhotos from './components/PreviousPhotos';
+// import PreviousPhotos from './components/PreviousPhotos';
 
 function App() {
 	//state
@@ -33,16 +33,14 @@ function App() {
 
 	return (
 		<div className='App'>
-			<Header />
+			<Header date={currentDate.date} title={currentDate.title} />
 			<PhotoOfDay
-				date={currentDate.date}
-				title={currentDate.title}
 				imgSrc={currentDate.url}
 				imgAlt={currentDate.title}
 				description={currentDate.explanation}
 				copyright={currentDate.copyright}
 			/>
-			<PreviousPhotos />
+			{/* <PreviousPhotos /> */}
 		</div>
 	);
 }
